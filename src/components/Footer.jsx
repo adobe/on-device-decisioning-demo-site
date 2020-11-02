@@ -19,7 +19,7 @@ class Footer extends Component {
             <p>
               Transactions on this site are not real. <br></br>
               Forked from <a href="https://github.com/david-babunashvili/React-Redux-Ecommerce">GitHub</a><br></br>
-              Report bugs and feedback to Bennet Roy @ Adobe Customer Solutions
+              File bugs and feedback under <a href= "https://github.com/adobe/on-device-decisioning-demo-site/issues">Feedback and Issues</a>
             </p>
           </div>
       </footer>

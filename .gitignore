@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+
+# sass
+.sass-cache
+
+# misc
+.DS_Store
+.env
+npm-debug.log
+.vscode

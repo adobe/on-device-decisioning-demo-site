@@ -10,6 +10,7 @@ it.
 var webpack = require('webpack');
 var path = require('path');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const { options } = require('yargs');
 
 module.exports = {
     context: path.join(__dirname, "./"),
@@ -20,23 +21,43 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: { 
+            "crypto": require.resolve("crypto-browserify"),
+            "stream": require.resolve("stream-browserify"),
+            "buffer": require.resolve("buffer/")
+        }
     },
     plugins: [
-        new CaseSensitivePathsPlugin()
+        new CaseSensitivePathsPlugin(),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        })
     ],
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loader: "babel-loader",
-            query: {
-                presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve)
-            }
+            use : [
+                {
+                    loader : 'babel-loader',
+                    options : {
+                        presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve)
+                    }
+                }
+            ]
         },
         {
             test: /\.(jpg|jpeg|gif|png)$/,
             exclude: /node_modules/,
-            loader:'url-loader?limit=1024&name=images/[name].[ext]'
+            use : [
+                {
+                    loader : 'url-loader',
+                    options : {
+                        limit : 1024,
+                        name : 'images/[name].[ext]'
+                    }
+                }
+            ]
         }
       ]
     },
@@ -45,5 +66,5 @@ module.exports = {
       hot: true,
       historyApiFallback: true,
       contentBase: "./public"
-  }
+    }
 }

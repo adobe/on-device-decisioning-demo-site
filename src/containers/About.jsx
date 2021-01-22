@@ -11,7 +11,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchAbout } from '../actions/fetchAbout'
 import {Helmet} from "react-helmet"
-import { ReactHTMLConverter } from 'react-html-converter/node'
 
 /**
  * Create About Container
@@ -19,8 +18,8 @@ import { ReactHTMLConverter } from 'react-html-converter/node'
 class About extends Component {
 	constructor(props) {
 		super(props);
-		this.converter = new ReactHTMLConverter();
-		this.converter.registerComponent('helmet', Helmet);
+		// this.converter = new ReactHTMLConverter();
+		// this.converter.registerComponent('helmet', Helmet);
     }
 	componentDidMount() {
 		const { dispatch } = this.props

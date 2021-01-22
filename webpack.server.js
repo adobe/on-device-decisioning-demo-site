@@ -21,6 +21,13 @@ module.exports = {
     path: path.resolve('server-build'),
     filename: 'index.js'
   },
+  resolve: {
+    alias: { 
+        "crypto": require.resolve("crypto-browserify"),
+        "stream": require.resolve("stream-browserify"),
+        "buffer": require.resolve("buffer/")
+    }
+  },
   module: {
     rules: [
       {

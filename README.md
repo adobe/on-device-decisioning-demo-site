@@ -7,7 +7,7 @@
 * Download/Clone this repo.
 * Run `npm install` on the terminal to install all the dependencies.
 * The Application will be running in port 3006, if you wish to change the port, you must change now in `src/config/server.js`
-* if you change the port, ensure you build again by executing `npm run build`
+* if you change the port, ensure you build again by executing `npm run build-server`
 * Run `npm run start` on the terminal to start the application.
 * Open http://localhost:3006/ to see the demo site.
 
